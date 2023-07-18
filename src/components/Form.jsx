@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function App() {
-  const [loginError, setLoginError] = useState(false);
+  const [loginResult, setLoginResult] = useState({ value: false });
   const {
     register,
     handleSubmit,
@@ -16,10 +16,12 @@ export default function App() {
     axios
       .post("http://challenge-react.alkemy.org/", data)
       .then((response) => {
-        console.log(response);
+        setLoginResult({ ...loginResult, value: true, state: "accepted" });
+        const token = response.data.token;
+        localStorage.setItem("loggedUserToken", token);
       })
       .catch((e) => {
-        setLoginError(true);
+        setLoginResult({ ...loginResult, value: true, state: "denied" });
       });
   };
 
@@ -71,7 +73,12 @@ export default function App() {
                 </a>
               </div>
             </form>
-            {loginError && <LoginAlert setLoginError={setLoginError} />}
+            {loginResult.value && (
+              <LoginAlert
+                setLoginResult={setLoginResult}
+                loginResult={loginResult}
+              />
+            )}
           </div>
         </div>
       </div>
