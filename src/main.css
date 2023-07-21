@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"),
+    url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+.links-regular {
+  /* Link/Regular */
+  color: #a8aebf;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+
+  font-weight: 800;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.02rem;
+}
+
+.links-small {
+  /* Link/Small */
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 171.429% */
+  letter-spacing: 0.0175rem;
+}
