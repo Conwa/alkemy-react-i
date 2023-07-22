@@ -1,4 +1,5 @@
 import backgroundImg from "../assets/Background.png";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function Login() {
@@ -15,6 +16,7 @@ export default function Login() {
       id="background"
     >
       <Navbar />
+      <Footer />
     </div>
   );
 }

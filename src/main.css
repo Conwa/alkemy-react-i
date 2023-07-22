@@ -15,13 +15,14 @@
   font-size: 1rem;
   font-style: normal;
 
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.5rem; /* 150% */
   letter-spacing: 0.02rem;
 }
 
 .links-small {
   /* Link/Small */
+  color: #a8aebf;
   font-family: Poppins;
   font-size: 0.875rem;
   font-style: normal;

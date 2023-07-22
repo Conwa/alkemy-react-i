@@ -15,7 +15,7 @@ export default function Navbar() {
         </div>
       </a>
 
-      <div id="links" className="flex flex-row gap-10 items-center">
+      <div id="links" className="flex flex-row gap-8 items-center">
         <a className="flex items-center content-center links-regular">
           <h1>Dashboard</h1>
         </a>
@@ -23,7 +23,7 @@ export default function Navbar() {
           <h1>Suggestions</h1>
         </a>
         <a className="flex items-center content-center links-regular">Add</a>
-        <a className="flex flex-row gap-2 items-center content-center links-regular">
+        <a className="flex flex-row gap-1 items-center content-center links-regular">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
