@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #5a4af4;
+}
+
+html {
+  color: #a8aebf;
+}
+
 @font-face {
   font-family: "Poppins";
   src: local("Poppins"),
     url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
 }
+
+.headings-h1 {
+  font-family: Poppins;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 5rem; /* 125% */
+  letter-spacing: -0.08rem;
+}
+
 .links-regular {
-  /* Link/Regular */
-  color: #a8aebf;
   font-family: Poppins;
   font-size: 1rem;
   font-style: normal;
@@ -21,12 +37,24 @@
 }
 
 .links-small {
-  /* Link/Small */
-  color: #a8aebf;
   font-family: Poppins;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem; /* 171.429% */
   letter-spacing: 0.0175rem;
+}
+
+.buttons-default {
+  border-radius: 0.75rem;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+}
+
+.body-regular {
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
 }

@@ -1,5 +1,6 @@
 import backgroundImg from "../assets/Background.png";
 import Footer from "../components/Footer";
+import LoginForm from "../components/LoginForm";
 import Navbar from "../components/Navbar";
 
 export default function Login() {
@@ -12,10 +13,12 @@ export default function Login() {
         backgroundPosition: "50%",
         backgroundRepeat: "repeat-y",
       }}
-      className="w-screen min-h-screen"
+      className="w-screen min-h-screen flex justify-center items-center"
       id="background"
     >
       <Navbar />
+      <LoginForm />
+
       <Footer />
     </div>
   );
