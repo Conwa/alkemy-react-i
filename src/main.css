@@ -7,7 +7,7 @@
 }
 
 html {
-  color: #a8aebf;
+  color: #c3c8d4;
 }
 
 @font-face {
@@ -57,4 +57,20 @@ html {
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem; /* 150% */
+}
+
+.img-background {
+  z-index: 1;
+  background: #eee;
+  width: 100px;
+  height: 10px;
+}
+.img-background:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 50%;
+  border-bottom: 1px solid magenta;
 }

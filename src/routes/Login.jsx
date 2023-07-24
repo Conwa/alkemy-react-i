@@ -13,7 +13,7 @@ export default function Login() {
         backgroundPosition: "50%",
         backgroundRepeat: "repeat-y",
       }}
-      className="w-screen min-h-screen flex justify-center items-center"
+      className="w-screen min-h-screen h-screen flex flex-col items-center"
       id="background"
     >
       <Navbar />

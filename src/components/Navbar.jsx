@@ -3,7 +3,7 @@ import BrandLogo from "../assets/brand-logo.svg";
 export default function Navbar() {
   return (
     <nav
-      className=" flex justify-between fixed top-0 left-0 w-full items-center px-52 py-4"
+      className=" flex justify-between relative top-0 left-0 w-full items-center px-52 py-4"
       style={{
         backgroundColor: "#121829b5",
         backdropFilter: "blur(8px)",
