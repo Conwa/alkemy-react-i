@@ -4,13 +4,36 @@ import App from "./App.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Dashboard from "./components/Dashboard.jsx";
+import Layout from "./components/Layout.jsx";
+import UserAuthetication from "./components/UserAuthetication.jsx";
 import "./main.css";
+import Home from "./routes/Home.jsx";
 import Login from "./routes/Login.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <UserAuthetication>
+            {" "}
+            <Home />{" "}
+          </UserAuthetication>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+    ],
   },
 ]);
 

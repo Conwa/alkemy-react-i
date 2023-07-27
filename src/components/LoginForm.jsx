@@ -5,9 +5,11 @@ import hombreLogo from "../assets/sally.png";
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [loginResult, setLoginResult] = useState({ value: false });
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,6 +23,7 @@ export default function LoginForm() {
         setLoginResult({ ...loginResult, value: true, state: "accepted" });
         const token = response.data.token;
         localStorage.setItem("loggedUserToken", token);
+        navigate("/home");
       })
       .catch((e) => {
         setLoginResult({ ...loginResult, value: true, state: "denied" });
@@ -28,24 +31,27 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="relative grow flex h-full w-full antialiased flex-row justify-center items-center overflow-hidden">
-      <div className=" w-1/2 h-full max-h-full" style={{}}>
-        <img
-          src={hombreLogo}
-          className="relative w-full h-full object-contain"
-        ></img>
-      </div>
+    <div className="flex flex-row grow">
+      <div
+        className="w-1/2 h-full"
+        style={{
+          backgroundImage: `url(${hombreLogo})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
 
       <div className=" w-1/2 gap-7 pr-52 h-full flex flex-col justify-center">
         <h1 className="headings-h1">Login</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className=" w-3/4">
-          <div className="relative">
+          <div className="relative mb-4">
             <input
               type="text"
               placeholder="Email"
               // defaultValue={"challenge@alkemy.org"}
-              className="w-full h-auto border pl-10 py-4 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-2 rounded-lg bg-transparent mb-4"
+              className="w-full h-auto border pl-10 py-4 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-2 rounded-lg bg-transparent"
               {...register("email", {
                 required: {
                   value: true,
@@ -85,12 +91,12 @@ export default function LoginForm() {
             {errors.email && <span>{errors.email.message}</span>}
           </div>
 
-          <div className="relative">
+          <div className="relative mb-4">
             <input
               type="password"
               placeholder="Password"
               defaultValue={"react"}
-              className="w-full h-auto border pl-10 py-4 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-2 rounded-lg bg-transparent mb-4"
+              className="w-full h-auto border pl-10 py-4 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-2 rounded-lg bg-transparent"
               {...register("password", { required: true })}
             />
 

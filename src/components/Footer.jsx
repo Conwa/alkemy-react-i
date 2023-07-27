@@ -4,7 +4,7 @@ import LinkedInIcon from "../assets/linkedin.png";
 export default function Footer() {
   return (
     <div
-      className="flex justify-between bottom-0 left-0 w-full items-center px-52 py-3"
+      className="flex justify-between w-full items-center px-52 py-3"
       style={{
         backgroundColor: "#121829b5",
       }}
