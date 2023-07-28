@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BrandLogo from "../assets/brand-logo.svg";
 
 export default function Navbar() {
   const token = localStorage.getItem("loggedUserToken");
 
-  const navigate = useNavigate();
   return (
     <nav
       className=" flex justify-between relative top-0 left-0 w-full items-center px-52 py-4"
@@ -14,11 +13,9 @@ export default function Navbar() {
       }}
     >
       <Link to="/home">
-        <a aria-current="page">
-          <div className="logo">
-            <img src={BrandLogo} alt="brand-logo"></img>
-          </div>
-        </a>
+        <div className="logo">
+          <img src={BrandLogo} alt="brand-logo"></img>
+        </div>
       </Link>
 
       <div id="links" className="flex flex-row gap-8 items-center">
