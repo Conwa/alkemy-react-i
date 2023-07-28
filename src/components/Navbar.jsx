@@ -19,7 +19,10 @@ export default function Navbar() {
         </div>
       </a>
       <div id="links" className="flex flex-row gap-8 items-center">
-        <Link to="/" className="flex items-center content-center links-regular">
+        <Link
+          to="/dashboard"
+          className="flex items-center content-center links-regular"
+        >
           Dashboard
         </Link>
 

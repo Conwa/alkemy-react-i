@@ -4,10 +4,10 @@ import App from "./App.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Dashboard from "./components/Dashboard.jsx";
 import Layout from "./components/Layout.jsx";
 import UserAuthetication from "./components/UserAuthetication.jsx";
 import "./main.css";
+import Dashboard from "./routes/Dashboard.jsx";
 import Home from "./routes/Home.jsx";
 import Login from "./routes/Login.jsx";
 
@@ -20,8 +20,7 @@ const router = createBrowserRouter([
         path: "/",
         element: (
           <UserAuthetication>
-            {" "}
-            <Home />{" "}
+            <Home />
           </UserAuthetication>
         ),
       },
@@ -31,7 +30,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <Home />,
+        element: (
+          <UserAuthetication>
+            <Home />
+          </UserAuthetication>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <UserAuthetication>
+            <Dashboard />
+          </UserAuthetication>
+        ),
       },
     ],
   },
