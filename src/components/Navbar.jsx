@@ -13,11 +13,14 @@ export default function Navbar() {
         backdropFilter: "blur(8px)",
       }}
     >
-      <a href="/" aria-current="page">
-        <div className="logo">
-          <img src={BrandLogo} alt="brand-logo"></img>
-        </div>
-      </a>
+      <Link to="/home">
+        <a aria-current="page">
+          <div className="logo">
+            <img src={BrandLogo} alt="brand-logo"></img>
+          </div>
+        </a>
+      </Link>
+
       <div id="links" className="flex flex-row gap-8 items-center">
         <Link
           to="/dashboard"
