@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
+console.log(API_KEY);
+
 const headers = {
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYTc1ZGM4ODhmZjI0NDllNGRiMTcwYzNjNzU5NDZiNyIsInN1YiI6IjY0YzQxZDJmZWVjNWI1MDEzOWZlZGU2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-9MnsRuDb4mC5SozRBzW7Aqwo2twIhTg9xSFgzV78qM",
+    Authorization: `Bearer ${API_KEY}`,
   },
 };
 
