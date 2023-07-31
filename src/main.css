@@ -17,6 +17,38 @@ html {
   font-weight: normal;
 }
 
+.body-regular {
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+
+.body-small {
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 171.429% */
+}
+.buttons-default {
+  border-radius: 0.75rem;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+}
+
+.card-hover-effect img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.card-hover-effect:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 .headings-h1 {
   font-family: Poppins;
   font-size: 4rem;
@@ -24,6 +56,22 @@ html {
   font-weight: 600;
   line-height: 5rem; /* 125% */
   letter-spacing: -0.08rem;
+}
+
+.img-background {
+  z-index: 1;
+  background: #eee;
+  width: 100px;
+  height: 10px;
+}
+.img-background:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 50%;
+  border-bottom: 1px solid magenta;
 }
 
 .links-regular {
@@ -45,43 +93,21 @@ html {
   letter-spacing: 0.0175rem;
 }
 
-.buttons-default {
-  border-radius: 0.75rem;
-  border: 2px solid var(--primary-color);
-  background: var(--primary-color);
+.radio input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.body-regular {
-  font-family: Poppins;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5rem; /* 150% */
+.radio input:checked {
+  background-color: #7b6ef6;
 }
 
-.img-background {
-  z-index: 1;
-  background: #eee;
-  width: 100px;
-  height: 10px;
-}
-.img-background:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 50%;
-  border-bottom: 1px solid magenta;
-}
-
-.card-hover-effect img {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-.card-hover-effect:hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+.radio input:before {
+  content: attr(label);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
 }
