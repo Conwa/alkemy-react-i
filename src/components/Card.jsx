@@ -1,8 +1,7 @@
 export default function Card({ movie }) {
-  console.log(movie);
   return (
     <div
-      className=" h-96  w-56 rounded-xl flex flex-col"
+      className=" h-96  w-56 rounded-xl flex flex-col cursor-default"
       style={{
         backgroundColor: "#303544",
       }}

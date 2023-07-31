@@ -27,9 +27,11 @@ export default function Navbar() {
         </Link>
 
         <a className="flex items-center content-center links-regular">
-          <h1>Suggestions</h1>
+          <h1>Movies</h1>
         </a>
-        <a className="flex items-center content-center links-regular">Add</a>
+        <a className="flex items-center content-center links-regular">
+          TV Shows
+        </a>
 
         {token ? (
           <button
