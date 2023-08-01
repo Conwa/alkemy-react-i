@@ -1,37 +1,48 @@
-export default function Frame() {
+export default function ListWrapper({ setListVariant }) {
+  const inputOptions = document.querySelectorAll(`input[name="option"]`);
+
+  inputOptions.forEach((input) => {
+    input.addEventListener("click", () => {
+      setListVariant(input.value);
+    });
+  });
+
   return (
-    <div className="py-2 h-fit w-72">
+    <div className="py-2 h-fit w-fit">
       <div
-        className="radio w-full h-10 rounded-xl flex overflow-hidden links-small"
+        className="radio w-full rounded-xl flex overflow-hidden links-regular p-2"
+        role="radiogroup"
+        aria-labelledby="option-select"
+        id="option-select"
         style={{
           backgroundColor: "#121829b5",
           backdropFilter: "blur(8px)",
         }}
       >
         <input
-          label="All"
+          label="Trending"
           type="radio"
-          id="male"
-          name="gender"
-          value="male"
+          id="trending"
+          name="option"
+          value="trending"
           defaultChecked="true"
-          className="w-1/3 h-full"
+          className="w-fit py-2 px-8 rounded-lg"
         />
         <input
-          label="Movies"
+          label="Top Rated"
           type="radio"
-          id="female"
-          name="gender"
-          value="female"
-          className="w-1/3 h-full text-center"
+          id="top-rated"
+          name="option"
+          value="top-rated"
+          className="w-fit py-2 px-8 rounded-lg"
         />
         <input
-          label="TV Shows"
+          label="Upcoming"
           type="radio"
-          id="other"
-          name="gender"
-          value="other"
-          className="w-1/3 h-full text-center"
+          id="ppcoming"
+          name="option"
+          value="upcoming"
+          className="w-fit py-2 px-8 rounded-lg"
         />
       </div>
     </div>

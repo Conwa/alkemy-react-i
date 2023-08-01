@@ -1,11 +1,6 @@
 export default function Card({ movie }) {
   return (
-    <div
-      className=" h-96  w-56 rounded-xl flex flex-col cursor-default"
-      style={{
-        backgroundColor: "#303544",
-      }}
-    >
+    <div className=" h-96  w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80">
       <div className="w-auto h-5/6 relative card-hover-effect overflow-hidden">
         <img
           className="h-full w-full object-scale-contain rounded-xl p-2 "

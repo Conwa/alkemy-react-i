@@ -7,7 +7,7 @@
 }
 
 html {
-  color: #c3c8d4;
+  color: #767e94;
 }
 
 @font-face {
@@ -103,11 +103,10 @@ html {
 
 .radio input:checked {
   background-color: #7b6ef6;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
 }
 
 .radio input:before {
   content: attr(label);
-  display: inline-block;
-  text-align: center;
-  width: 100%;
 }

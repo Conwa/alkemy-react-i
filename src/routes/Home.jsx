@@ -9,6 +9,7 @@ import moviesService from "../services/movies";
 
 export default function Home() {
   const [moviesList, setMoviesList] = useState();
+  const [listVariant, setListVariant] = useState("trending");
   useEffect(() => {
     moviesService
       .getList("https://api.themoviedb.org/3/movie/popular")
@@ -20,8 +21,8 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col" id="home-layout">
       <Navbar />
-      <div className="flex flex-col h-fit w-full px-52 py-3">
-        <h1 className="headings-h1 text-gray-50">Movies Lists</h1>
+      <div className="flex flex-col h-fit w-full px-52 pb-3 pt-8">
+        <h1 className="headings-h1 text-gray-50">Movies</h1>
         <p className="body-small py-4">
           {" "}
           A list of the current trending, top rated and upcoming movies for you,
@@ -31,7 +32,8 @@ export default function Home() {
           <br />
           Have fun!
         </p>
-        <ListWrapper />
+        <ListWrapper setListVariant={setListVariant} />
+        <h1>{listVariant}</h1>
 
         <div className="flex flex-row  gap-3 flex-wrap justify-evenly">
           {moviesList ? (
