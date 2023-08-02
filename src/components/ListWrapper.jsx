@@ -1,9 +1,10 @@
-export default function ListWrapper({ setListVariant }) {
+export default function ListWrapper({ setListVariant, setHeaderTitle }) {
   const inputOptions = document.querySelectorAll(`input[name="option"]`);
 
   inputOptions.forEach((input) => {
     input.addEventListener("click", () => {
-      setListVariant(input.value);
+      setListVariant(input.id);
+      setHeaderTitle(input.value);
     });
   });
 
@@ -20,28 +21,28 @@ export default function ListWrapper({ setListVariant }) {
         }}
       >
         <input
-          label="Trending"
+          label="Popular"
           type="radio"
-          id="trending"
+          id="popular"
           name="option"
-          value="trending"
+          value="Popular"
           defaultChecked="true"
           className="w-fit py-2 px-8 rounded-lg"
         />
         <input
           label="Top Rated"
           type="radio"
-          id="top-rated"
+          id="top_rated"
           name="option"
-          value="top-rated"
+          value="Top Rated"
           className="w-fit py-2 px-8 rounded-lg"
         />
         <input
           label="Upcoming"
           type="radio"
-          id="ppcoming"
+          id="upcoming"
           name="option"
-          value="upcoming"
+          value="Upcoming"
           className="w-fit py-2 px-8 rounded-lg"
         />
       </div>
