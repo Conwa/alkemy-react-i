@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 export default function Card({ movie }) {
+  console.log(movie);
   return (
     <div className=" h-96  w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80">
       <div className="w-auto h-5/6 relative card-hover-effect overflow-hidden">
@@ -34,7 +36,7 @@ export default function Card({ movie }) {
       </div>
 
       <h1 className=" h-1/6 w-full p-2 links-regular text-gray-50 flex items-center">
-        {movie.title}
+        {movie.title ? movie.title : movie.name}
       </h1>
     </div>
   );

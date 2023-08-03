@@ -42,7 +42,6 @@ const router = createBrowserRouter([
               </UserAuthetication>
             ),
           },
-
           {
             path: "/tvshows",
             element: (

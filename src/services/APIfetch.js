@@ -9,10 +9,10 @@ const headers = {
   },
 };
 
-const getList = async (url) => {
+const get = async (url) => {
   const request = axios.get(`${url}`, headers);
   const response = await request;
   return response.data.results;
 };
 
-export default { getList };
+export default { get };

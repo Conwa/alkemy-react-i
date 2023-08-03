@@ -1,3 +1,5 @@
+import CardList from "../components/CardList";
+
 export default function TVShowsLayout() {
-  return <h1>shows</h1>;
+  return <CardList type={"TV Shows"} />;
 }
