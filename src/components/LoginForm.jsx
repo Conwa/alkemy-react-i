@@ -23,7 +23,7 @@ export default function LoginForm() {
         setLoginResult({ ...loginResult, value: true, state: "accepted" });
         const token = response.data.token;
         localStorage.setItem("loggedUserToken", token);
-        navigate("/home");
+        navigate("/");
       })
       .catch((e) => {
         setLoginResult({ ...loginResult, value: true, state: "denied" });

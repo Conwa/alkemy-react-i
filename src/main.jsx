@@ -10,6 +10,8 @@ import "./main.css";
 import Dashboard from "./routes/Dashboard.jsx";
 import Home from "./routes/Home.jsx";
 import Login from "./routes/Login.jsx";
+import Movies from "./routes/Movies.jsx";
+import TVShowsLayout from "./routes/TVShows.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,26 +25,37 @@ const router = createBrowserRouter([
             <Home />
           </UserAuthetication>
         ),
+        children: [
+          {
+            path: "/movies",
+            element: (
+              <UserAuthetication>
+                <Movies />
+              </UserAuthetication>
+            ),
+          },
+          {
+            path: "/dashboard",
+            element: (
+              <UserAuthetication>
+                <Dashboard />
+              </UserAuthetication>
+            ),
+          },
+
+          {
+            path: "/tvshows",
+            element: (
+              <UserAuthetication>
+                <TVShowsLayout />
+              </UserAuthetication>
+            ),
+          },
+        ],
       },
       {
         path: "/login",
         element: <Login />,
-      },
-      {
-        path: "/home",
-        element: (
-          <UserAuthetication>
-            <Home />
-          </UserAuthetication>
-        ),
-      },
-      {
-        path: "/dashboard",
-        element: (
-          <UserAuthetication>
-            <Dashboard />
-          </UserAuthetication>
-        ),
       },
     ],
   },

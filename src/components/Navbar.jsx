@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import BrandLogo from "../assets/brand-logo.svg";
 
 export default function Navbar() {
@@ -12,26 +12,42 @@ export default function Navbar() {
         backdropFilter: "blur(8px)",
       }}
     >
-      <Link to="/home">
+      <Link to="/">
         <div className="logo">
           <img src={BrandLogo} alt="brand-logo"></img>
         </div>
       </Link>
 
-      <div id="links" className="flex flex-row gap-8 items-center">
-        <Link
-          to="/dashboard"
-          className="flex items-center content-center links-regular"
-        >
-          Dashboard
-        </Link>
-
-        <a className="flex items-center content-center links-regular">
-          <h1>Movies</h1>
-        </a>
-        <a className="flex items-center content-center links-regular">
-          TV Shows
-        </a>
+      <div id="nav-wrapper" className=" flex gap-8">
+        <ul className="flex flex-row gap-8 items-center">
+          <li className="">
+            {" "}
+            <NavLink
+              to="/dashboard"
+              className="flex items-center content-center links-regular"
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            {" "}
+            <NavLink
+              to="/movies"
+              className="flex items-center content-center links-regular active:text-white"
+            >
+              Movies
+            </NavLink>
+          </li>
+          <li>
+            {" "}
+            <NavLink
+              to="/tvshows"
+              className="flex items-center content-center links-regular active:text-white"
+            >
+              TV Shows
+            </NavLink>
+          </li>
+        </ul>
 
         {token ? (
           <button

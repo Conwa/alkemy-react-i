@@ -110,3 +110,7 @@ html {
 .radio input:before {
   content: attr(label);
 }
+
+ul li a.active {
+  color: white;
+}
