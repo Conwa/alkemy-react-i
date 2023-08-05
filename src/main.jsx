@@ -4,6 +4,7 @@ import App from "./App.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import CardDetail from "./components/CardDetail.jsx";
 import Layout from "./components/Layout.jsx";
 import UserAuthetication from "./components/UserAuthetication.jsx";
 import "./main.css";
@@ -27,14 +28,6 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "/movies",
-            element: (
-              <UserAuthetication>
-                <Movies />
-              </UserAuthetication>
-            ),
-          },
-          {
             path: "/dashboard",
             element: (
               <UserAuthetication>
@@ -43,10 +36,34 @@ const router = createBrowserRouter([
             ),
           },
           {
+            path: "/movies",
+            element: (
+              <UserAuthetication>
+                <Movies />
+              </UserAuthetication>
+            ),
+          },
+          {
+            path: "/movies/:movieID",
+            element: (
+              <UserAuthetication>
+                <CardDetail />
+              </UserAuthetication>
+            ),
+          },
+          {
             path: "/tvshows",
             element: (
               <UserAuthetication>
                 <TVShowsLayout />
+              </UserAuthetication>
+            ),
+          },
+          {
+            path: "/tvshows/:tvshowID",
+            element: (
+              <UserAuthetication>
+                <CardDetail />
               </UserAuthetication>
             ),
           },

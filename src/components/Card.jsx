@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-export default function Card({ movie }) {
+export default function Card({ element }) {
+  const url = useLocation();
+  const pathname = url.pathname;
+
   return (
     <div className=" h-96  w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80">
       <div className="w-auto h-5/6 relative card-hover-effect overflow-hidden">
-        <Link to={"/"}>
+        <Link to={`${pathname}/${element.id}`}>
           <img
             className="h-full w-full object-scale-contain rounded-xl p-2 "
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${element.poster_path}`}
           />
           <div
             className="absolute top-4 left-4 backdrop-blur-sm px-1 py-2 rounded-lg"
@@ -31,7 +34,7 @@ export default function Card({ movie }) {
                 />
               </svg>
               <h1 className=" text-amber-400 body-regular">
-                {movie.vote_average}
+                {element.vote_average}
               </h1>
             </div>
           </div>
@@ -39,7 +42,7 @@ export default function Card({ movie }) {
       </div>
 
       <h1 className=" h-1/6 w-full p-2 links-regular text-gray-50 flex items-center">
-        {movie.title ? movie.title : movie.name}
+        {element.title ? element.title : element.name}
       </h1>
     </div>
   );

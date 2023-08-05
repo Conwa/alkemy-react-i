@@ -24,7 +24,7 @@ export default function CardList({ type }) {
   }
 
   useEffect(() => {
-    APIfetch.get(
+    APIfetch.getAll(
       `https://api.themoviedb.org/3/${urlOption}/${listVariant}`
     ).then((elems) => {
       setList(elems);
@@ -52,8 +52,8 @@ export default function CardList({ type }) {
 
       <div className="flex flex-row  gap-3 flex-wrap justify-evenly py-4">
         {resultList ? (
-          resultList.map((movie, index) => {
-            return <Card key={index} movie={movie} />;
+          resultList.map((element, index) => {
+            return <Card key={index} element={element} />;
           })
         ) : (
           <h1>sds</h1>
