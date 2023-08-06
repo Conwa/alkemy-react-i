@@ -58,6 +58,24 @@ html {
   letter-spacing: -0.08rem;
 }
 
+.headings-h3 {
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+  letter-spacing: -0.64px;
+}
+
+.headings-h4 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.36px;
+}
+
 .img-background {
   z-index: 1;
   background: #eee;
