@@ -34,6 +34,15 @@ export default function Test() {
 
   console.log(element);
 
+  function renderNamesWithCommas(arrayOfObjects) {
+    const names = arrayOfObjects.map((obj) => obj.name);
+    return names.join(", ");
+  }
+
+  const genresWithComma = element.genres
+    ? renderNamesWithCommas(element.genres)
+    : null;
+
   return (
     <div className="flex flex-col h-fit w-full px-52 pb-3 pt-8">
       {/*TOP SECTION WITH IMG AND ABSOLUTE ELEMENT TITLE */}
@@ -56,17 +65,66 @@ export default function Test() {
         </div>
       </div>
       {/*MAIN DIV */}
-      <div className="h-fit w-full flex flex-row mt-16 gap-8 ">
+      <div
+        className=" w-full flex flex-row mt-16 gap-8"
+        style={{ height: "42rem" }}
+      >
         <div
-          className="w-full rounded-xl"
+          className="h-full w-1/2 rounded-xl lg:mr-24"
           style={{
-            height: "29rem",
             background: `url(https://image.tmdb.org/t/p/w500/${element.poster_path}) 
             center center/cover no-repeat`,
           }}
         ></div>
 
-        <div className="h-10 w-full bg-red-950"></div>
+        <div className=" h-full w-1/2 flex flex-col justify-between gap-2">
+          <div className="w-full">
+            {" "}
+            <h1 className="headings-h4 text-white">{element.tagline}</h1>
+          </div>
+          <div className="w-full">
+            {" "}
+            <h1 className="body-large">{element.overview}</h1>
+          </div>
+          <div className="w-fit">
+            <div className="flex gap-1 items-center bg-black bg-opacity-60 rounded-lg px-2 py-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M9.15327 2.33999L10.3266 4.68666C10.4866 5.01333 10.9133 5.32666 11.2733 5.38666L13.3999 5.73999C14.7599 5.96666 15.0799 6.95333 14.0999 7.92666L12.4466 9.57999C12.1666 9.85999 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.85999 3.55327 9.57999L1.89994 7.92666C0.926606 6.95333 1.23994 5.96666 2.59994 5.73999L4.72661 5.38666C5.07994 5.32666 5.50661 5.01333 5.66661 4.68666L6.83994 2.33999C7.47994 1.06666 8.51994 1.06666 9.15327 2.33999Z"
+                  stroke="#FFAD49"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <h1 className=" text-amber-400 body-regular">
+                {element.vote_average}
+              </h1>
+            </div>
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="body-regular">Type</h1>
+            <h1 className="body-large text-gray-100">Movie</h1>
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="body-regular">Release Date</h1>
+            <h1 className="body-large text-gray-100">{element.release_date}</h1>
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="body-regular">Run time</h1>
+            <h1 className="body-large text-gray-100">{element.runtime} min</h1>
+          </div>
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="body-regular">Genres</h1>
+            <h1 className="body-large text-gray-100">{genresWithComma}</h1>
+          </div>
+        </div>
       </div>
     </div>
   );
