@@ -80,7 +80,13 @@ export default function Test() {
         <div className=" h-full w-1/2 flex flex-col justify-between gap-2">
           <div className="w-full">
             {" "}
-            <h1 className="headings-h4 text-white">{element.tagline}</h1>
+            <h1 className="headings-h4 text-white">
+              {element.tagline
+                ? element.tagline
+                : element.title
+                ? element.title
+                : element.name}
+            </h1>
           </div>
           <div className="w-full">
             {" "}
