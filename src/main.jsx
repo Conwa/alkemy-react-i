@@ -12,12 +12,14 @@ import Dashboard from "./routes/Dashboard.jsx";
 import Home from "./routes/Home.jsx";
 import Login from "./routes/Login.jsx";
 import Movies from "./routes/Movies.jsx";
+import NotFound from "./routes/NotFound.jsx";
 import TVShowsLayout from "./routes/TVShows.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",

@@ -67,6 +67,15 @@ html {
   letter-spacing: -0.08rem;
 }
 
+.headings-h2 {
+  font-family: Poppins;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.5rem; /* 116.667% */
+  letter-spacing: -0.06rem;
+}
+
 .headings-h3 {
   font-family: Poppins;
   font-size: 32px;
