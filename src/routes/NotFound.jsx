@@ -21,7 +21,7 @@ export default function NotFound() {
     >
       <Navbar />
       <div
-        className="grow w-ful flex flex-col items-center py-2"
+        className="grow w-full flex flex-col items-center py-2"
         id="not-found-main-container"
       >
         <img src={notFoundGuy} alt="not-found-img" className=" h-80 w-96" />
