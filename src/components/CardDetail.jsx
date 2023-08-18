@@ -3,12 +3,14 @@ import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import APIfetch from "../services/APIfetch";
 
-export default function Test() {
+export default function CardDetail() {
   const [element, setElement] = useState("");
   const params = useParams();
   const url = useLocation();
   let elementID = "";
   let urlOption = "";
+
+  console.log(element);
 
   function useRegex(input) {
     let regex = /\/movies\//i;
@@ -31,8 +33,6 @@ export default function Test() {
       setElement(res);
     });
   }, [elementID, urlOption]);
-
-  console.log(element);
 
   function renderNamesWithCommas(arrayOfObjects) {
     const names = arrayOfObjects.map((obj) => obj.name);
@@ -69,6 +69,7 @@ export default function Test() {
         className=" w-full flex flex-row mt-16 gap-8"
         style={{ height: "42rem" }}
       >
+        {/*ELEMENT IMAGE*/}
         <div
           className="h-full w-1/2 rounded-xl lg:mr-24"
           style={{
@@ -76,8 +77,8 @@ export default function Test() {
             center center/cover no-repeat`,
           }}
         ></div>
-
-        <div className=" h-full w-1/2 flex flex-col justify-between gap-2">
+        {/*ELEMENT DETAILS*/}
+        <div className=" h-full w-1/2 flex flex-col justify-between gap-6">
           <div className="w-full">
             {" "}
             <h1 className="headings-h4 text-white">
@@ -88,11 +89,22 @@ export default function Test() {
                 : element.name}
             </h1>
           </div>
-          <div className="w-full">
-            {" "}
-            <h1 className="body-large">{element.overview}</h1>
+
+          <div
+            className="w-full body-regular "
+            style={{
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: "6",
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {element.overview}
           </div>
-          <div className="w-fit">
+
+          {/*STAR RATING */}
+          <div id="star-rating" className="w-fit">
             <div className="flex gap-1 items-center bg-black bg-opacity-60 rounded-lg px-2 py-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,18 +126,75 @@ export default function Test() {
               </h1>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-1">
-            <h1 className="body-regular">Type</h1>
-            <h1 className="body-large text-gray-100">Movie</h1>
-          </div>
-          <div className="w-full flex flex-col gap-1">
-            <h1 className="body-regular">Release Date</h1>
-            <h1 className="body-large text-gray-100">{element.release_date}</h1>
-          </div>
-          <div className="w-full flex flex-col gap-1">
-            <h1 className="body-regular">Run time</h1>
-            <h1 className="body-large text-gray-100">{element.runtime} min</h1>
-          </div>
+          {/*TYPE AND STATUS*/}
+          {urlOption === "movie" ? (
+            <div className="w-full flex flex-col gap-1">
+              <h1 className="body-regular">Type</h1>
+              <h1 className="body-large text-gray-100">Movie</h1>
+            </div>
+          ) : (
+            <div className="w-full flex ">
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">Type</h1>
+                <h1 className="body-large text-gray-100">TV Show</h1>
+              </div>
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">Status</h1>
+                <h1 className="body-large text-gray-100">{element.status}</h1>
+              </div>
+            </div>
+          )}
+          {/*DATES */}
+          {urlOption === "movie" ? (
+            <div className="w-full flex flex-col gap-1">
+              <h1 className="body-regular">Release Date</h1>
+              <h1 className="body-large text-gray-100">
+                {element.release_date}
+              </h1>
+            </div>
+          ) : (
+            <div className="w-full flex ">
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">First Air date</h1>
+                <h1 className="body-large text-gray-100">
+                  {element.first_air_date}
+                </h1>
+              </div>
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">Last Air date</h1>
+                <h1 className="body-large text-gray-100">
+                  {element.last_air_date}
+                </h1>
+              </div>
+            </div>
+          )}
+
+          {/*OTHER PARAMETERS*/}
+          {urlOption === "movie" ? (
+            <div className="w-full flex flex-col gap-1">
+              <h1 className="body-regular">Run time</h1>
+              <h1 className="body-large text-gray-100">
+                {element.runtime} min
+              </h1>
+            </div>
+          ) : (
+            <div className="w-full flex ">
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">Number of Seasons</h1>
+                <h1 className="body-large text-gray-100">
+                  {element.number_of_seasons}
+                </h1>
+              </div>
+              <div className="w-full flex flex-col gap-1">
+                <h1 className="body-regular">Number of Episodes</h1>
+                <h1 className="body-large text-gray-100">
+                  {element.number_of_episodes}
+                </h1>
+              </div>
+            </div>
+          )}
+
+          {/*GENRE LIST*/}
           <div className="w-full flex flex-col gap-1">
             <h1 className="body-regular">Genres</h1>
             <h1 className="body-large text-gray-100">{genresWithComma}</h1>
