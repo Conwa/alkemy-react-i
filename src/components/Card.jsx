@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import SkeletonComponent from "./CardSkeleton";
 
 /* eslint-disable react/prop-types */
 export default function Card({ element }) {
@@ -11,7 +12,11 @@ export default function Card({ element }) {
         <Link to={`${pathname}/${element.id}`}>
           <img
             className="h-full w-full object-scale-contain rounded-xl p-2 "
-            src={`https://image.tmdb.org/t/p/w500/${element.poster_path}`}
+            src={
+              `https://image.tmdb.org/t/p/w500/${element.poster_path}` || (
+                <SkeletonComponent duration={3} />
+              )
+            }
           />
           <div
             className="absolute top-4 left-4 backdrop-blur-sm px-1 py-2 rounded-lg"

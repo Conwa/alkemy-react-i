@@ -7,8 +7,10 @@ import ListWrapper from "../components/ListWrapper";
 import { useLocation } from "react-router-dom";
 import APIfetch from "../services/APIfetch";
 
+import CardSkeleton from "./CardSkeleton";
+
 export default function CardList({ type }) {
-  const [resultList, setList] = useState();
+  const [resultList, setList] = useState([]);
   const [listVariant, setListVariant] = useState("popular");
   const [headerTitle, setHeaderTitle] = useState("Popular");
 
@@ -24,11 +26,14 @@ export default function CardList({ type }) {
   }
 
   useEffect(() => {
-    APIfetch.getAll(
-      `https://api.themoviedb.org/3/${urlOption}/${listVariant}`
-    ).then((elems) => {
-      setList(elems);
-    });
+    console.log(resultList);
+    setTimeout(() => {
+      APIfetch.getAll(
+        `https://api.themoviedb.org/3/${urlOption}/${listVariant}`
+      ).then((elems) => {
+        setList(elems);
+      });
+    }, Math.random() * 1800);
   }, [listVariant, urlOption]);
   return (
     <div className="flex flex-col h-fit w-full px-52 pb-3 pt-8">
@@ -48,15 +53,16 @@ export default function CardList({ type }) {
       <ListWrapper
         setListVariant={setListVariant}
         setHeaderTitle={setHeaderTitle}
+        setList={setList}
       />
 
       <div className="flex flex-row  gap-3 flex-wrap justify-evenly py-4">
-        {resultList ? (
+        {resultList.length > 0 ? (
           resultList.map((element, index) => {
             return <Card key={index} element={element} />;
           })
         ) : (
-          <h1>sds</h1>
+          <CardSkeleton />
         )}
       </div>
     </div>

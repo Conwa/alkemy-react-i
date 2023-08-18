@@ -13,7 +13,8 @@ export default function HomeLayout() {
 
       {url.pathname === "/" ? (
         <h1>
-          ACA VA LO DEL HOME QUE SE REEMPLAZA CON LO DEL OUTLET EN OTRA RUTA
+          ENDPOINT A UTILIZAR: <br />
+          https://api.themoviedb.org/3/search/multi?query=law&include_adult=false&language=en-US&page=1
         </h1>
       ) : (
         <Outlet />

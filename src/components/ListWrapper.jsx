@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useLocation } from "react-router-dom";
 
-export default function ListWrapper({ setListVariant, setHeaderTitle }) {
+export default function ListWrapper({
+  setListVariant,
+  setHeaderTitle,
+  setList,
+}) {
   const inputOptions = document.querySelectorAll(`input[name="option"]`);
 
   let url = useLocation();
@@ -17,6 +21,7 @@ export default function ListWrapper({ setListVariant, setHeaderTitle }) {
 
   inputOptions.forEach((input) => {
     input.addEventListener("click", () => {
+      setList([]);
       setListVariant(input.id);
       setHeaderTitle(input.value);
     });
