@@ -10,8 +10,6 @@ export default function CardDetail() {
   let elementID = "";
   let urlOption = "";
 
-  console.log(element);
-
   function useRegex(input) {
     let regex = /\/movies\//i;
     return regex.test(input);

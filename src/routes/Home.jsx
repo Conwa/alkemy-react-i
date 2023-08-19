@@ -18,21 +18,16 @@ export default function HomeLayout() {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setList("");
-    }, Math.random() * 1800);
+    setList("");
+    setQuery("");
   }, []);
 
   useEffect(() => {
     const fetchQuery = setTimeout(() => {
-      setList("");
-
-      if (!query) {
-        console.log(!query);
+      if (!query || query === "") {
         APIfetch.getAll(
           ` https://api.themoviedb.org/3/search/multi?query=Mission: Impossible&include_adult=false&language=en-US&page=1`
         ).then((elems) => {
-          console.log(elems);
           elems = elems.sort((a, b) => {
             return b.popularity - a.popularity;
           });
@@ -107,7 +102,13 @@ export default function HomeLayout() {
           <div className="flex flex-row  gap-3 flex-wrap justify-evenly py-4">
             {resultList.length > 0 ? (
               resultList.map((element, index) => {
-                return <Card key={index} element={element} />;
+                return (
+                  <Card
+                    key={index}
+                    element={element}
+                    mediaType={element.media_type}
+                  />
+                );
               })
             ) : (
               <CardSkeleton />

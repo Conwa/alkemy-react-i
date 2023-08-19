@@ -2,14 +2,23 @@ import { Link, useLocation } from "react-router-dom";
 import SkeletonComponent from "./CardSkeleton";
 
 /* eslint-disable react/prop-types */
-export default function Card({ element }) {
+export default function Card({ element, mediaType }) {
   const url = useLocation();
   const pathname = url.pathname;
+
+  let mediaPath = "";
+
+  if (mediaType === "movie") {
+    mediaPath = "movies";
+  }
+  if (mediaType === "tv") {
+    mediaPath = "tvshows";
+  }
 
   return (
     <div className=" h-96  w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80">
       <div className="w-auto h-5/6 relative card-hover-effect overflow-hidden">
-        <Link to={`${pathname}/${element.id}`}>
+        <Link to={`${mediaPath || pathname}/${element.id}`}>
           <img
             className="h-full w-full object-scale-contain rounded-xl p-2 "
             src={
