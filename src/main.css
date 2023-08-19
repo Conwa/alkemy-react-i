@@ -47,6 +47,13 @@ html {
   background: var(--primary-color);
 }
 
+.caption {
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 114.286% */
+}
 .card-hover-effect img {
   -webkit-transform: scale(1);
   transform: scale(1);

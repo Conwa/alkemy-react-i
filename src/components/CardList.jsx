@@ -26,7 +26,6 @@ export default function CardList({ type }) {
   }
 
   useEffect(() => {
-    console.log(resultList);
     setTimeout(() => {
       APIfetch.getAll(
         `https://api.themoviedb.org/3/${urlOption}/${listVariant}`

@@ -2,9 +2,12 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function CardSkeleton() {
+  function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
   return (
     <>
-      {Array(10)
+      {Array(randomNumber(6, 11))
         .fill()
         .map((index) => {
           return (
