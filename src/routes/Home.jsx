@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 
 import Navbar from "../components/Navbar";
@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Card from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
+import APIfetch from "../services/APIfetch";
 
 export default function HomeLayout() {
   const url = useLocation();
@@ -14,8 +15,43 @@ export default function HomeLayout() {
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
-    console.log(query);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setList("");
+    }, Math.random() * 1800);
+  }, []);
+
+  useEffect(() => {
+    const fetchQuery = setTimeout(() => {
+      setList("");
+
+      if (!query) {
+        console.log(!query);
+        APIfetch.getAll(
+          ` https://api.themoviedb.org/3/search/multi?query=Mission: Impossible&include_adult=false&language=en-US&page=1`
+        ).then((elems) => {
+          console.log(elems);
+          elems = elems.sort((a, b) => {
+            return b.popularity - a.popularity;
+          });
+          setList(elems);
+        });
+      } else {
+        APIfetch.getAll(
+          `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
+        ).then((elems) => {
+          elems = elems.sort((a, b) => {
+            return b.popularity - a.popularity;
+          });
+          setList(elems);
+        });
+      }
+    }, Math.random() * 1800);
+
+    return () => clearTimeout(fetchQuery);
+  }, [query]);
 
   return (
     <div className="min-h-screen flex flex-col" id="home-layout">
@@ -25,9 +61,9 @@ export default function HomeLayout() {
         <div className="flex flex-col h-fit w-full px-52 pb-3 pt-8">
           {/*H1, P, and SEARCH INPUT*/}
           <div className="flex flex-col gap-4">
-            <h1 className="headings-h1 text-gray-50">Skill Up Alkemy I</h1>
+            <h1 className="headings-h1 text-gray-50">Stream Wizard</h1>
             <p className="body-regular">
-              Feel free to lookout Movies and TV Shows suggestions!
+              Feel free to lookout for Movies and TV Shows suggestions!
             </p>
 
             {/*INPUT FOR SEARCH MOVIES*/}

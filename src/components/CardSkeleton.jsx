@@ -9,15 +9,11 @@ export default function CardSkeleton() {
     <>
       {Array(randomNumber(6, 11))
         .fill()
-        .map((index) => {
+        .map((item, index) => {
           return (
-            <>
-              {" "}
+            <div key={index}>
               <SkeletonTheme baseColor="#202020" highlightColor="#444">
-                <div
-                  key={index}
-                  className=" h-96 w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80"
-                >
+                <div className=" h-96 w-56 rounded-xl flex flex-col cursor-default bg-gray-900 bg-opacity-80">
                   <div className="w-auto h-5/6 relative p-2">
                     <Skeleton
                       className="h-full w-full"
@@ -36,7 +32,7 @@ export default function CardSkeleton() {
                   </div>
                 </div>
               </SkeletonTheme>
-            </>
+            </div>
           );
         })}
     </>
