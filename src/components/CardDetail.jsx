@@ -120,7 +120,7 @@ export default function CardDetail() {
                 />
               </svg>
               <h1 className=" text-amber-400 body-regular">
-                {element.vote_average}
+                {element.vote_average?.toFixed(1)}
               </h1>
             </div>
           </div>
