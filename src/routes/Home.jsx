@@ -26,7 +26,7 @@ export default function HomeLayout() {
     const fetchQuery = setTimeout(() => {
       if (!query || query === "") {
         APIfetch.getAll(
-          ` https://api.themoviedb.org/3/search/multi?query=Mission: Impossible&include_adult=false&language=en-US&page=1`
+          `https://api.themoviedb.org/3/trending/all/week?language=en-US`
         ).then((elems) => {
           elems = elems.sort((a, b) => {
             return b.popularity - a.popularity;
