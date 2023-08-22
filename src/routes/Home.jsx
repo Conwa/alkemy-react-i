@@ -36,7 +36,7 @@ export default function HomeLayout() {
         });
       } else {
         APIfetch.getAll(
-          `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
+          `https://api.themoviedb.org/3/search/multi?query=${query.trim()}&include_adult=false&language=en-US&page=1`
         ).then((elems) => {
           elems = elems.sort((a, b) => {
             return b.popularity - a.popularity;
