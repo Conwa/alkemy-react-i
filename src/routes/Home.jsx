@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-
-import Navbar from "../components/Navbar";
-
 import { Outlet, useLocation } from "react-router-dom";
+
 import Card from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import SearchInput from "../components/SeachInput";
+
 import APIfetch from "../services/APIfetch";
 
 export default function HomeLayout() {
