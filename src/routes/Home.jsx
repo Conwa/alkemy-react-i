@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import SearchInput from "../components/SeachInput";
 
 import APIfetch from "../services/APIfetch";
+import useMovieStore from "../store/movieStore";
 
 export default function HomeLayout() {
   const url = useLocation();
@@ -18,10 +19,13 @@ export default function HomeLayout() {
     setQuery(e.target.value);
   };
 
+  const setMovies = useMovieStore.getState().setMovies;
+
   useEffect(() => {
     setList("");
     setQuery("");
-  }, []);
+    setMovies();
+  }, [setMovies]);
 
   useEffect(() => {
     const fetchQuery = setTimeout(() => {
