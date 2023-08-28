@@ -136,6 +136,15 @@ html {
   letter-spacing: 0.0175rem;
 }
 
+.links-extra_small {
+  font-family: Poppins;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem; /* 133.333% */
+  letter-spacing: 0.015rem;
+}
+
 .radio input {
   -webkit-appearance: none;
   -moz-appearance: none;
