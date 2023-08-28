@@ -76,7 +76,7 @@ export default function Card({ element, mediaType }) {
                 />
               </svg>
               <h1 className=" text-amber-400 body-regular">
-                {element.vote_average.toFixed(1)}
+                {element.vote_average?.toFixed(1)}
               </h1>
             </div>
           </div>

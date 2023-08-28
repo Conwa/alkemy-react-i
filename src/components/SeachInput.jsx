@@ -1,6 +1,6 @@
 export default function SearchInput({ query, handleSearch }) {
   return (
-    <div className="relative w-1/3  mt-2 mb-4 caption">
+    <div className="relative lg:w-1/3  mt-2 mb-4 caption">
       <form>
         <input
           type="search"
