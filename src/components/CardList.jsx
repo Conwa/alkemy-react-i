@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import Card from "../components/Card";
 import ListWrapper from "../components/ListWrapper";
@@ -13,6 +14,10 @@ export default function CardList({ type }) {
   const [resultList, setList] = useState([]);
   const [listVariant, setListVariant] = useState("popular");
   const [headerTitle, setHeaderTitle] = useState("Popular");
+
+  const smallLayout = useMediaQuery({
+    query: "(min-width: 640px)",
+  });
 
   let url = useLocation();
   url = url.pathname.slice(1);
@@ -35,20 +40,28 @@ export default function CardList({ type }) {
     }, Math.random() * 1800);
   }, [listVariant, urlOption]);
   return (
-    <div className="flex flex-col h-fit w-full px-52 pb-3 pt-8">
-      <h1 className="headings-h1 text-gray-50">
-        {" "}
-        {headerTitle} {type}
-      </h1>
-      <p className="body-small py-4">
-        {" "}
-        A list of the current popular, top rated and upcoming movies for you,
-        the user
-        <br />
-        feel free to click on any of the movies to get it´s details
-        <br />
-        Have fun!
-      </p>
+    <div className="flex flex-col h-fit w-full px-4 md:px-10 lg:px-52 pb-3 pt-8">
+      {smallLayout ? (
+        <>
+          <h1 className="headings-h1 text-gray-50">
+            {headerTitle} {type}
+          </h1>
+          <p className="body-small py-4">
+            A list of the current popular, top rated and upcoming movies for
+            you, the user
+            <br />
+            feel free to click on any of the movies to get it´s details
+            <br />
+            Have fun!
+          </p>
+        </>
+      ) : (
+        <>
+          <h1 className="headings-h2 text-gray-50 text-center">
+            {headerTitle} {type}
+          </h1>
+        </>
+      )}
       <ListWrapper
         setListVariant={setListVariant}
         setHeaderTitle={setHeaderTitle}

@@ -28,9 +28,9 @@ export default function ListWrapper({
   });
 
   return (
-    <div className="py-2 h-fit w-fit">
+    <div className=" py-4 lg:py-2 h-fit w-full">
       <div
-        className="radio w-full rounded-xl flex overflow-hidden links-regular p-2"
+        className="radio h-16 lg:h-18 w-full md:w-2/3 lg:w-1/2 rounded-xl flex flex-row items-center  overflow-hidden links-regular p-2"
         role="radiogroup"
         aria-labelledby="option-select"
         id="option-select"
@@ -46,7 +46,7 @@ export default function ListWrapper({
           name="option"
           value="Popular"
           defaultChecked="true"
-          className="w-fit py-2 px-8 rounded-lg"
+          className=" py-2 basis-1/3 rounded-lg text-center"
         />
         <input
           label="Top Rated"
@@ -54,7 +54,7 @@ export default function ListWrapper({
           id="top_rated"
           name="option"
           value="Top Rated"
-          className="w-fit py-2 px-8 rounded-lg"
+          className=" py-2 basis-1/3 rounded-lg text-center"
         />
         <input
           label="Upcoming"
@@ -62,7 +62,7 @@ export default function ListWrapper({
           id={idOption}
           name="option"
           value="Upcoming"
-          className="w-fit py-2 px-8 rounded-lg"
+          className=" py-2 basis-1/3 rounded-lg text-center"
         />
       </div>
     </div>
